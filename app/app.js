@@ -6,11 +6,21 @@ import axios from "axios";
 
 const App = ({ data }) => {
   const [listData, setListData] = useState([]);
+  const [keyword, setKeyword] = useState("");
+
+  const onChangeSearch = (value) => {
+    setKeyword(value);
+  };
+
+  const onSubmit = () => {
+    setKeyword(null);
+    initialize();
+  };
 
   async function initialize() {
     axios
       .get(
-        "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=true"
+        `https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=true&tags=${keyword}`
       )
       .then((response) => {
         console.log(response.data.items);
@@ -27,7 +37,13 @@ const App = ({ data }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <MainScreen data={listData} onRefresh={initialize} />
+      <MainScreen
+        data={listData}
+        onRefresh={initialize}
+        onChangeSearch={onChangeSearch}
+        onSubmit={onSubmit}
+        value={keyword}
+      />
     </View>
   );
 };

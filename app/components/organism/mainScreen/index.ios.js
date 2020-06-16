@@ -13,7 +13,15 @@ import DefaultHeader from "../../molecule/defaultHeader";
 import ImageModal from "../../molecule/imageModal";
 import { responsiveWidth } from "react-native-responsive-dimensions";
 
-const MainScreen = ({ label, headerTitle, data, onRefresh }) => {
+const MainScreen = ({
+  label,
+  headerTitle,
+  data,
+  onRefresh,
+  onChangeSearch,
+  onSubmit,
+  value,
+}) => {
   //console.log('hello' ,data)
 
   const toggleVisible = () => {
@@ -25,8 +33,15 @@ const MainScreen = ({ label, headerTitle, data, onRefresh }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={{ flex: 1 }}>
-        <DefaultHeader title={headerTitle} />
+      <View style={{ flex: 1.5 }}>
+        <DefaultHeader
+          value={value}
+          title={headerTitle}
+          search
+          onSubmit={onRefresh}
+          onChangeSearch={onChangeSearch}
+          onEnter={onSubmit}
+        />
       </View>
       <View style={{ flex: 9 }}>
         <ScrollView
