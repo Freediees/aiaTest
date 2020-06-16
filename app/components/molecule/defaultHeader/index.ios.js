@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import styles from './style';
 
 const DefaultHeader = ({ title }) => {
-    return(
-        <View style={ styles.container } >
-            <Text style={{ fontSize: 16}}>{title}</Text>
+    return (
+        <View style={styles.container} >
+            <Text style={{ fontSize: 16 }}>{title}</Text>
         </View>
     )
 }

@@ -5,7 +5,7 @@ export default {
         width: '100%', 
         alignItems: 'center', 
         paddingBottom: 8, 
-        justifyContent: 'flex-end',
+          justifyContent: 'flex-end',
     }
 }
   
