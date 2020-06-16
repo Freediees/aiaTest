@@ -1,0 +1,6 @@
+module Pods_aiaTest {
+  umbrella header "Pods-aiaTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
